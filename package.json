@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy:firebase": "ng build --prod && firebase deploy"
+    "deploy:gh": "ng build --configuration production --base-href='https://iamrashree.github.io/deploy-demo-followers/' && ngh",
+    "deploy:firebase": "ng build --configuration production && firebase deploy"
   },
   "private": true,
   "dependencies": {
