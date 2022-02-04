@@ -31,7 +31,7 @@ Ahead-of-time (AOT) compilation
 - `ng build`
 
 # Environment
-`ng serve --prod` or `ng serve --configuration=production`
+`ng serve --prod` or `ng serve --configuration production`
 
 # Adding environment
 - Add new file in environment folder
@@ -49,13 +49,13 @@ Ahead-of-time (AOT) compilation
 - `git remote add origin https://....` (copy the command and execute)
 - `git push origin master`
 - `npm i -g angular-cli-ghpages` (install node package to deploy in github)
-- `ng build --prod --base=href="https://username.github.io/app-name/"` (set base-href or else apllication not gonna work)
+- `ng build --configuration production --base-href="https://username.github.io/app-name/"` (set base-href or else apllication not gonna work)
 - `angular-cli-pages` or 'ngh' (deployes to git hub)
 
 # Short Method to deploy on Github
 - Go to package.json
 - Add new script in Scripts section
-- "deploy:gh": "ng build --prod --base-href='https://username.github.io/app-name/https://username.github.io/app-name/' && ngh"
+- "deploy:gh": "ng build --configuration production --base-href='https://username.github.io/app-name/https://username.github.io/app-name/' && ngh"
 - run command `npm run deploy:gh`
 
 -if above method don't deploy in github go to 'setting' and select 'pages' on left menu and then selcect theme
@@ -70,11 +70,11 @@ Ahead-of-time (AOT) compilation
 - `firebase login`
 - `firebase init` (select hosting, select created project on )
 - verify firebase.json file with public property as dist
-- `ng build --prod && firebase deploy`
+- `ng build --configuration production && firebase deploy`
 
 # Short Method to deploy on Github
 - Go to package.json
 - Add new script in Scripts section
-- "deploy:firebase": "ng build --prod && firebase deploy"
+- "deploy:firebase": "ng build --configuration production && firebase deploy"
 - `npm run deploy:firebase`
 
