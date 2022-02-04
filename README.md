@@ -4,24 +4,77 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm install` and `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Optimization Technique
+- Minification
+- Uglification
+- Bundling
+- Dead code elimination
+- Ahead-of-time (AOT) compilation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+to apply all above technique run `ng build prod`
 
-## Build
+# Two types of Compilation
+JIT (Just in time) compilation
+- Inefficient for production
+- Happens for every user
+- More components, slower
+- We have to ship angular compiler as part of vendor bundle
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ahead-of-time (AOT) compilation
+- Faster startup
+- Smaller buldle size
+- Catch template errors earlier
+- Better security
+- `node_modules/.bin/ngc`
+- `ng build`
 
-## Running unit tests
+# Environment
+`ng serve --prod` or `ng serve --configuration=production`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Adding environment
+- Add new file in environment folder
+- Register in angular-cli.json
 
-## Running end-to-end tests
+# Linter
+- `ng lint`
+- `ng lint --fix` (fix most of the easy fixes)
+- install tslint extension in VScode
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Deploying on Github
+- https://pages.github.com
+- Deployes only front end
+- Create a new repository
+- `git remote add origin https://....` (copy the command and execute)
+- `git push origin master`
+- `npm i -g angular-cli-ghpages` (install node package to deploy in github)
+- `ng build --prod --base=href="https://username.github.io/app-name/"` (set base-href or else apllication not gonna work)
+- `angular-cli-pages` or 'ngh' (deployes to git hub)
 
-## Further help
+# Short Method to deploy on Github
+- Go to package.json
+- Add new script in Scripts section
+- "deploy:gh": "ng build --prod --base-href='https://username.github.io/app-name/https://username.github.io/app-name/' && ngh"
+- run command `npm run deploy:gh`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-if above method don't deploy in github go to 'setting' and select 'pages' on left menu and then selcect theme
+
+# Deploying on Firebase
+- Deployes front end and back end
+- Provided by google
+- Used for deploying back end , web application or mobile application
+- https://console.firebase.google.com
+- Add project in above URL
+- `npm i -g firebase-tools` (install firebase tools)
+- `firebase login`
+- `firebase init` (select hosting, select created project on )
+- verify firebase.json file with public property as dist
+- `ng build --prod && firebase deploy`
+
+# Short Method to deploy on Github
+- Go to package.json
+- Add new script in Scripts section
+- "deploy:firebase": "ng build --prod && firebase deploy"
+- `npm run deploy:firebase`
+
