@@ -60,6 +60,8 @@ Ahead-of-time (AOT) compilation
 
 -if above method don't deploy in github go to 'setting' and select 'pages' on left menu and then selcect theme
 
+https://iamrashree.github.io/deploy-demo-followers/
+
 # Deploying on Firebase
 - Deployes front end and back end
 - Provided by google
@@ -77,4 +79,6 @@ Ahead-of-time (AOT) compilation
 - Add new script in Scripts section
 - "deploy:firebase": "ng build --configuration production && firebase deploy"
 - `npm run deploy:firebase`
+
+https://deploy-demo-followers.firebaseapp.com/
 
