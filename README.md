@@ -110,5 +110,7 @@ this angular-complier is build on top of typescript so we have to move typescrip
 - Application is deployed successfully
 - To open execute `heroku open`.
 
+https://find-dominant-color.herokuapp.com/
+
 Note: to execute all above mentioned commands you should be in your project folder.
 
