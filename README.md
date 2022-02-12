@@ -82,3 +82,33 @@ https://iamrashree.github.io/deploy-demo-followers/
 
 https://deploy-demo-followers.firebaseapp.com/
 
+# Deploying on Heroku
+- First create a account in https://www.heroku.com/
+- Visit this website and install heroku https://devcenter.heroku.com/articles/heroku-cli 
+- Install heroku by executing command `npm install -g heroku`
+- After installing check heroku version `heroku --version`
+- Execute this command `herok login` it opens web to login.
+- After login execute `heroku create <app-name>` will get a application link
+- You can open application by executing `heroku open`
+- When we depoy our application heroku is going to look at package.json under dependencies and it's going to install all of these with the npm, at this point we are going to build our applicaion using angular-cli on heroku, angular/cli is one of the devdevpendencies, heroku not going to install, this so by default we can not build our application using anular/cli on heroku,
+so to fix this issue, we need to move angular/cli to dependenices also will be moving angular/copiler 
+this angular-complier is build on top of typescript so we have to move typescript to dependencies
+- Now the required dependencies are ready now we need to build our application
+- In the script section add "postinstall": "ng build --prod", so this is a reserved script and it's run automatically after all these dependencies are installed.
+- Now our front end is ready
+- Create server.js file in your projetc folder, here will be importing express, express is a framework for building web applications on node, so because on the back end we are using express so we need to add as dependencies in package.json aswell, execute `npm install express` 
+- Now the last step, in the script section we need to change "start" script and instead of serving this angular application we need to start our node server, so change start script to "node server.js"
+- Node is going to run this server.js which is our web server, job of this web server is to host our static content and expose any api endpoint.
+- Check server.js file
+- Now we are ready to deploy our application on Heroku
+- First commit changes to git by executing `git add .` `git commit -m "Prepare for heroku"`
+- Let's create an app using heroku cli, by executing `heroku create` this heroku cli registeres the remote for this git repository(It's already done)
+- check remote by executing `git remote`, it should list 'heroku' and 'origin'
+- So every time to deploy our application all we have to do is to push our changes to heroku, at this point heroku has continuous deployment process it kicks in and 
+- checks out all the latest code from that repository, it's going to install dependencies, build the application and run node server.
+- Back in terminal execute `git push heroku master`.
+- Application is deployed successfully
+- To open execute `heroku open`.
+
+Note: to execute all above mentioned commands you should be in your project folder.
+
