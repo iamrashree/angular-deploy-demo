@@ -74,7 +74,7 @@ https://iamrashree.github.io/deploy-demo-followers/
 - verify firebase.json file with public property as dist
 - `ng build --configuration production && firebase deploy`
 
-# Short Method to deploy on Github
+# Short Method to deploy on Firebase
 - Go to package.json
 - Add new script in Scripts section
 - "deploy:firebase": "ng build --configuration production && firebase deploy"
